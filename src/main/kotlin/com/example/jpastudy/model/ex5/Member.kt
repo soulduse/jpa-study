@@ -1,4 +1,4 @@
-package com.example.jpastudy.model
+package com.example.jpastudy.model.ex5
 
 import javax.persistence.Entity
 import javax.persistence.GeneratedValue
@@ -45,7 +45,7 @@ class Member(
     @JoinColumn(name = "locker_id")
     var locker: Locker? = null
         private set
-    
+
     fun setLocker(locker: Locker) {
         this.locker = locker
         locker.setMember(this)

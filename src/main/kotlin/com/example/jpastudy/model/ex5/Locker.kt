@@ -1,4 +1,4 @@
-package com.example.jpastudy.model
+package com.example.jpastudy.model.ex5
 
 import javax.persistence.Entity
 import javax.persistence.GeneratedValue

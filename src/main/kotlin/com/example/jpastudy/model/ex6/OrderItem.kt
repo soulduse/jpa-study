@@ -1,4 +1,4 @@
-package com.example.jpastudy.model
+package com.example.jpastudy.model.ex6
 
 import javax.persistence.Entity
 import javax.persistence.GeneratedValue
@@ -8,32 +8,22 @@ import javax.persistence.JoinColumn
 import javax.persistence.ManyToOne
 
 @Entity
-class OrderItem(
-    orderPrice: Int,
-    count: Int
-) {
+class OrderItem {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     val id: Long = 0L
 
     @ManyToOne
     @JoinColumn(name = "order_id")
-    lateinit var order: Order
+    var order: Order? = null
+        private set
 
     @ManyToOne
     @JoinColumn(name = "item_id")
-    lateinit var item: Item
-
-    var orderPrice: Int = orderPrice
+    var item: Item? = null
         private set
 
-    var count: Int = count
-        private set
-
-    fun addOrder(order: Order?) {
-        if (order != null) {
-            order.orderItems.remove(this)
-        }
-        order.orderItems
+    fun setOrder(order: Order) {
+        this.order = order
     }
 }
